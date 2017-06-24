@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  selectedComponent = 'shopping-list';
+
+  onEventReceive(event) {
+    this.selectedComponent = event;
+  }
 }

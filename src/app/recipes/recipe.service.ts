@@ -1,6 +1,9 @@
+import { ShoppingListService } from './../shopping-list/shopping-list.service';
 import { Ingredient } from './../shared/ingredients.model';
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
+
+@Injectable()
 
 export class RecipeService {
 
@@ -23,11 +26,17 @@ export class RecipeService {
             [new Ingredient('Egg', 2), new Ingredient('Pepper', 5)])
     ];
 
-  getRecipe() {
-      return this.recipes.slice();
-      //intention of slice() here is just to pass the array by value
-      //By default arrays are handled as reference in javascript 
-  }
+    constructor(private shoppingListService: ShoppingListService) {}
+
+    getRecipe() {
+        return this.recipes.slice();
+        //intention of slice() here is just to pass the array by value
+        //By default arrays are handled as reference in javascript 
+     }
+
+    AddIngredientsToShoppingList(ing: Ingredient[]) {
+        this.shoppingListService.addIngredients(ing);
+    }
 
 
 

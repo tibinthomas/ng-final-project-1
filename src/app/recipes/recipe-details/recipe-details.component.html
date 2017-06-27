@@ -22,3 +22,19 @@
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-xs-12">
+        {{currentlySelectedItem.description}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor = "let ing of currentlySelectedItem.ingredients">
+                    {{ing.name}} - {{ing.price}}
+            </li>
+        </ul>
+    </div>
+</div>

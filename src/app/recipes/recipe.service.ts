@@ -28,7 +28,7 @@ export class RecipeService {
 
     constructor(private shoppingListService: ShoppingListService) {}
 
-    getRecipe() {
+    getRecipes() {
         return this.recipes.slice();
         //intention of slice() here is just to pass the array by value
         //By default arrays are handled as reference in javascript 
@@ -36,6 +36,10 @@ export class RecipeService {
 
     AddIngredientsToShoppingList(ing: Ingredient[]) {
         this.shoppingListService.addIngredients(ing);
+    }
+
+    getSelectedRecipe(index: number) {
+        return this.recipes[index];
     }
 
 

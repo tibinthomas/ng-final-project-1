@@ -8,8 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 const appRoutes: Routes = [
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
     { path: 'recipes', component: RecipesComponent, children: [
-        {path: '', component: RecipeStartComponent},
-        {path: ':id', component: RecipeDetailsComponent},
+        { path: '', component: RecipeStartComponent },
+        { path: ':id', component: RecipeDetailsComponent },
         ]
     },
     { path: 'shopping-list', component: ShoppingListComponent }

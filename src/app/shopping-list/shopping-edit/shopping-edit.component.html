@@ -1,19 +1,20 @@
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <form (ngSubmit)="onAddItem(f)" #f="ngForm">
+      <!--The local reference f here give access to the javascript object of form that angular created behind the scenes-->
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" class="form-control" #nameInput>
+          <input type="text" id="name" class="form-control" ngModel name="name">
         </div>
         <div class="col-sm-2 form-group">
           <label for="amount">Amount</label>
-          <input type="number" id="amount" class="form-control" #amountInput>
+          <input type="number" id="amount" class="form-control" ngModel name="amount">
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button class="btn btn-success" type="button" (click) = "onAddItem()">Add</button>
+          <button class="btn btn-success" type="button">Add</button>
           <button class="btn btn-danger" type="button">Delete</button>
           <button class="btn btn-primary" type="button">Clear</button>
         </div>

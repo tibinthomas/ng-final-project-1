@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   selectedComponent = 'shopping-list';
-
-  onEventReceive(event) {
-    this.selectedComponent = event;
-  }
 }

@@ -37,4 +37,8 @@ export class ShoppingListService {
         this.ingredients[index] = updateData;
         this.ingredientsChanged.next(this.ingredients.slice());
     }
+
+    onDelete(index: number) {
+        this.ingredients.splice(index, 1);
+    }
 }

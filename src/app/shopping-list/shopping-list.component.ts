@@ -1,6 +1,7 @@
+import { NgForm } from '@angular/forms/src/directives';
 import { Ingredient } from './../shared/ingredients.model';
 import { ShoppingListService } from './shopping-list.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-shopping-list',
@@ -15,8 +16,10 @@ export class ShoppingListComponent implements OnInit {
 
   ngOnInit() {
     this.ingredients = this.shoppingListService.getIngredients();
-    
   }
 
+  onClickingItem(id: number) {
+    this.shoppingListService.startedEditing.next(id);
+  }
 
 }

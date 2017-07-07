@@ -1,3 +1,4 @@
+import { Recipe } from './../recipe.model';
 import { RecipeService } from './../recipe.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -62,6 +63,20 @@ export class RecipeEditComponent implements OnInit {
         'amount': new FormControl()
       })
     )
+  }
+
+  onSubmit() {
+    const newRecipe = new Recipe(this.recipeForm.value['name'],
+                                 this.recipeForm.value['description'],
+                                 this.recipeForm.value['imagePath'],
+                                 this.recipeForm.value['ingredients']
+                                 )
+    if (this.editMode) {
+      this.recipeService.updateRecipe(this.editItemId, newRecipe);
+      //this.recipeService.updateRecipe(this.editItemId, this.recipeForm.value); is correct untill be keep the naming conventions
+    } else {
+      this.recipeService.addRecipe(newRecipe);
+    }
   }
 
 }

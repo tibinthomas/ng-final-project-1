@@ -74,14 +74,20 @@ export class RecipeEditComponent implements OnInit {
                                  )
     if (this.editMode) {
       this.recipeService.updateRecipe(this.editItemId, newRecipe);
+      this.onClickingCancel();
       //this.recipeService.updateRecipe(this.editItemId, this.recipeForm.value); is correct untill be keep the naming conventions
     } else {
       this.recipeService.addRecipe(newRecipe);
+      this.onClickingCancel();
     }
   }
 
   onClickingCancel() {
     this.router.navigate(['../'], {relativeTo: this.route} )
+  }
+
+  onPressingX(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
 
 }

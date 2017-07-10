@@ -24,5 +24,9 @@ export class HeaderComponent {
     onFetchData() {
         this.dataStorageService.retriveData();
     }
+
+    onLogout() {
+        this.authService.logout();
+    }
 }
 

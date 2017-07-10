@@ -14,10 +14,13 @@ export class AuthService {
                  )
     }
 
-
     getToken() {
         firebase.auth().currentUser.getToken()
             .then((token: string) =>  this.token = token);
         return this.token;
+    }
+
+    isAuthenticated() {
+        return this.token != null;
     }
 }

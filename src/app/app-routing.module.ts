@@ -1,3 +1,4 @@
+import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
     },
     { path: 'shopping-list', component: ShoppingListComponent },
     { path: 'signup', component: SignupComponent },
+    { path: 'signin', component: SigninComponent }
 ]
 
 @NgModule({
